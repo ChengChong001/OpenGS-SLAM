@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="GVKF">
-  <meta name="keywords" content="3dgs">
+        content="OpenGS-SLAM">
+  <meta name="keywords" content="3DGS, SLAM">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="twitter:card" content="summary">
   <!-- <meta name="twitter:image:src" content="http://marigoldmonodepth.github.io/images/marigold_logo_square.jpg"> -->
   <!-- <meta name="twitter:title" content="Marigold Depth"> -->
   <!-- <meta name="twitter:description" content="Repurposing Diffusion-Based Image Generators for Monocular Depth Estimation"> -->
-  <!-- <meta name="twitter:creator" content="@AntonObukhov1"> -->
+  <!-- <meta name="twitter:creator" content="@AntonObukhov1">
 
-  <title>GVKF</title>
+  <title>OpenGS-SLAM</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FWSVCGZTG"></script>
@@ -67,9 +67,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">GVKF: Gaussian Voxel Kernel Functions for Highly
-            Efficient Surface Reconstruction in Open Scenes</h1>
-          <h3 class="title has-text-centered">Anonymous Author(s)</h3>
+          <h1 class="title is-1 publication-title">RGB-Only Gaussian Splatting SLAM for Unbounded Outdoor Scenes</h1>
+          <h3 class="title has-text-centered">Sicheng Yu*, Chong Cheng*, Yifan Zhou, Xiaojun Yang, Hao Wang</h3>
         </div>
       </div>
     </div>
@@ -85,18 +84,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this paper we present a novel method for efficient and effective 3D surface reconstruction in open scenes. Existing Neural Radiance Fields (NeRF) based
-works typically require extensive training and rendering time due to the adopted
-implicit representations. In contrast, 3D Gaussian splatting (3DGS) uses an explicit
-and discrete representation, hence the reconstructed surface is built by the huge
-number of Gaussian primitives, which leads to excessive memory consumption
-and rough surface details in sparse GS areas. To address these issues, we propose
-Gaussian Voxel Kernel Functions (GVKF), which establish a continuous scene
-representation based on discrete 3D Gaussian Splatting (3DGS) through kernel
-regression. The GVKF integrate fast 3DGS rasterization and highly effective scene
-implicit representations, achieving high-fidelity open scene surface reconstruction.
-Experiments on challenging scene datasets demonstrate the efficiency and effective-ness of our proposed GVKF, featuring with high reconstruction quality, real-time
-rendering speeds, significant savings in storage and training memory consumption.
+            3D Gaussian Splatting (3DGS) has become a popular solution in SLAM, as it can produce high-fidelity novel views. However, previous GS-based methods primarily target indoor scenes and rely on RGB-D sensors or pre-trained depth estimation models, hence underperforming in outdoor scenarios. To address this issue, we propose a RGB-only gaussian splatting SLAM method for unbounded outdoor scenes—OpenGS-SLAM. 
+Technically, we first employ a pointmap regression network to generate consistent pointmaps between frames for pose estimation. Compared to commonly used depth maps, pointmaps include spatial relationships and scene geometry across multiple views, enabling robust camera pose estimation.
+Then, we propose integrating the estimated camera poses with 3DGS rendering as an end-to-end differentiable pipeline. Our method achieves simultaneous optimization of camera poses and 3DGS scene parameters, significantly enhancing system tracking accuracy. Specifically, we also design an adaptive scale mapper for the pointmap regression network, which provides more accurate pointmap mapping to the 3DGS map representation.
+Our experiments on the Waymo dataset demonstrate that OpenGS-SLAM reduces tracking error to 9.8 of previous 3DGS methods, and achieves state-of-the-art results in novel view synthesis.
           </p>
         </div>
       </div>
@@ -105,7 +96,7 @@ rendering speeds, significant savings in storage and training memory consumption
   </div>
 </section>
 
-
+<!-- 
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="columns is-centered has-text-centered">
@@ -845,7 +836,7 @@ rendering speeds, significant savings in storage and training memory consumption
       </div>
     </div>
   </div>
-</section> -->
+</section> --> -->
 
 <script>
   $(window).on('load', function() {
